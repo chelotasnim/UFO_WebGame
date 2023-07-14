@@ -1,0 +1,355 @@
+/* WEB SETTING */
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: cursive;
+}
+
+/* END OF WEB SETTING */
+
+/* COMMON PROPERTY */
+
+.Absolute {
+    position: absolute;
+}
+
+.Relative {
+    position: relative;
+}
+
+/* END OF COMMON PROPERTY */
+
+/* MAIN PAGE */
+
+.Page {
+    display: flex;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background: rgb(235, 235, 255);
+    overflow: hidden;
+}
+
+.Title {
+    top: 25%;
+    left: 50%;
+    width: max-content;
+    transform: translate(-50%, -75%) rotate(5deg);
+    z-index: 10;
+}
+
+.Title.Hide {
+    z-index: 1;
+    opacity: 0.3;
+}
+
+.Back-Title {
+    top: 25%;
+    left: 50%;
+    width: max-content;
+    transform: translate(-50%, -75%) rotate(-5deg);
+    opacity: 0.3;
+    z-index: 1;
+}
+
+.Back-Title.Active {
+    z-index: 10;
+    opacity: 1;
+}
+
+.Title h1, .Back-Title h1 {
+    font-weight: 900;
+    font-size: 100px;
+    color: rgb(255, 255, 255);
+    text-shadow:
+    -8px -8px 0 rgb(200, 150, 200),
+    1px -1px 0 rgb(200, 150, 200),
+    -1px 1px 0 rgb(200, 150, 200),
+    1px 1px 0 rgb(200, 150, 200);
+}
+
+.Canvas {
+    width: 750px;
+    height: 275px;
+    background: linear-gradient(to right, rgb(10, 10, 20), rgb(40, 40, 50));
+    border: 5px solid rgb(75, 75, 75);
+    border-radius: 10px;
+    -webkit-box-reflect: below 0 linear-gradient(transparent 40%, rgb(0, 0, 0));
+    overflow: hidden;
+}
+
+.Back {
+    bottom: 0;
+    right: 0;
+    padding: 8px 16px;
+}
+
+.Back h4 {
+    font-weight: 400;
+    font-size: 14px;
+    color: rgb(255, 255, 255);
+}
+
+.Menu {
+    display: flex;
+    right: 0;
+    width: 75%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255, 245, 255, 0.6));
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.Menu.Hide {
+    display: none;
+    width: 0;
+    height: 0;
+    z-index: 0;
+}
+
+.To-Play h4 {
+    text-align: center;
+    font-weight: 900;
+    font-size: 24px;
+    color: rgb(255, 255, 255);
+}
+
+.To-Play {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.Keyboard {
+    width: 100%;
+    height: 100%;
+}
+
+.Key-Layout {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    grid-template-columns: repeat(3, 50px);
+    grid-template-rows: repeat(2, 50px);
+    grid-template-areas:
+    'Empty1 Up Empty'
+    'LeftKey Down RightKey';
+    justify-content: center;
+    align-content: center;
+    gap: 5px;
+}
+
+.Key {
+    background: rgb(255, 255, 255);
+    box-shadow: inset 5px -5px 5px rgba(0, 0, 0, .3);
+    border-radius: 10px;
+}
+
+.Key ion-icon {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-35%, -15%);
+    width: 25px;
+    height: 25px;
+    color: rgb(100, 100, 100);
+}
+
+.Empty1 {
+    grid-area: Empty1;
+}
+
+.Empty2 {
+    grid-area: Empty2;
+}
+
+.Key.Up {
+    grid-area: Up;
+    background: rgb(245, 225, 245);
+}
+
+.Key.Left {
+    grid-area: LeftKey;
+}
+
+.Key.Right {
+    grid-area: RightKey;
+}
+
+.Key.Down {
+    grid-area: Down;
+    background: rgb(245, 225, 245);
+}
+
+.Game-Over {
+    display: none;
+    width: 0;
+    height: 0;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 10;
+}
+
+.Game-Over.Active {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.Game-Over {
+    font-weight: 900;
+    color: rgb(255, 255, 255);
+}
+
+.Game-Over h4 {
+    font-size: 32px;
+}
+
+.Game-Over h5 {
+    font-size: 18px;
+}
+
+.Score {
+    top: 0;
+    right: 0;
+    padding: 8px 16px;
+}
+
+.Score h5 {
+    font-weight: 400;
+    font-size: 18px;
+    color: rgb(255, 255, 255);
+}
+
+.Plane {
+    width: 100px;
+    height: 50px;
+    transform: rotate(3deg);
+    background: linear-gradient(to bottom, rgb(255, 255, 255) 50%, rgb(10, 10, 10));
+    clip-path: polygon(40% 0%, 60% 0%, 75% 55%, 100% 65%, 65% 100%, 35% 100%, 0 68%, 25% 55%);
+    transition: .1s;
+}
+
+.Plane.Ufo-Style {
+    transform: rotate(-3deg);
+}
+
+.Plane.Hit {
+    background: linear-gradient(to bottom, rgb(200, 0, 0), rgb(10, 10, 10));
+}
+
+.Missile {
+    right: -450px;
+    width: 125px;
+    height: 5px;
+    background: rgb(200, 0, 0);
+    box-shadow:
+    0 0 5px rgb(255, 0, 0),
+    0 0 15px rgb(255, 0, 0);
+}
+
+.Top-Missile {
+    top: 48px;
+}
+
+.Top-Missile.Run {
+    animation: Missile 1.5s linear infinite;
+}
+
+.Mid-Missile {
+    top: 50%;
+    width: 150px;
+    transform: translateY(-50%);
+}
+
+.Mid-Missile.Run {
+    animation: Missile 1.2s linear infinite;
+}
+
+.Bottom-Missile {
+    bottom: 48px;
+}
+
+.Bottom-Missile.Run {
+    animation: Missile 2s linear infinite .3s;
+}
+
+/* MAIN KEYFRAME */
+
+@keyframes Missile {
+    0% {
+        right: -450px;
+    }
+    100% {
+        right: 100%;
+    }
+}
+
+/* END OF MAIN KEYFRAME */
+
+/* END OF MAIN PAGE */
+
+/* NOT SUPPORT */
+
+.Not-Support {
+    display: flex;
+    width: 0;
+    height: 0;
+    background: rgb(235, 235, 255);
+    justify-content: center;
+    align-items: center;
+    z-index: 0;
+    text-align: center;
+    visibility: hidden;
+    overflow: hidden;
+}
+
+.Att-Img ion-icon {
+    width: 72px;
+    height: 72px;
+    color: rgb(200, 0, 0);
+}
+
+.Attention h5 {
+    max-width: 250px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: rgb(100, 100, 100);
+}
+
+/* NOT SUPPORT MEDIA RESV */
+
+@media (max-width: 900px) {
+    .Title, .Back-Title {
+        display: none;
+        visibility: hidden;
+    }
+    
+    .Canvas {
+        display: none;
+        width: 0;
+        height: 0;
+        visibility: hidden;
+    }
+
+    .Not-Support {
+        width: 100%;
+        height: 100%;
+        z-index: 100;
+        visibility: visible;
+    }
+}
+
+/* END OF NOT SUPPORT MEDIA RESV */
+
+/* END OF NOT SUPPORT */
